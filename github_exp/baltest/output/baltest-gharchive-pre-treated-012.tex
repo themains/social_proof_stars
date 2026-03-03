@@ -1,0 +1,28 @@
+%%% Table created in Stata by command iebaltab
+%%% (https://github.com/worldbank/ietoolkit)
+%%% (https://dimewiki.worldbank.org/iebaltab)
+%%% The command was specified exactly like this: 
+%%% iebaltab watchevent_pre pushevent_pre pullrequestevent_pre issues_opened_pre issues_closed_pre forkevent_pre releaseevent_pre , groupvar(treated2) star(.1 .05 .01) stats(pair(nrmd)) nonote grplabels( 0 Control @ 1 Treated (low) @ 2 Treated (high) @ ) order(0 1 2) control(0) grouplabels( 0 "Control repositories" @ 1 "Treated (low dose)" @ 2 "Treated (high dose)" ) rowlabels( forkevent_pre "Fork events" @ pullrequestevent_pre "Pull request events" @ pushevent_pre "Push events" @ releaseevent_pre "Release events" @ watchevent_pre "Stars" @ issues_opened_pre "Issues opened" @ issues_closed_pre "Issues closed" ) format(%9.2f) savetex(../output/baltest-gharchive-pre-treated-012.tex) replace
+
+\begin{tabular}{@{\extracolsep{5pt}}lcccccccccc}
+\\[-1.8ex]\hline \hline \\[-1.8ex]
+ & \multicolumn{2}{c}{(1)}  & \multicolumn{2}{c}{(2)}  & \multicolumn{2}{c}{(3)}  & \multicolumn{2}{c}{(2)-(1)} & \multicolumn{2}{c}{(3)-(1)} \\
+ & \multicolumn{2}{c}{Control repositories}  & \multicolumn{2}{c}{Treated (low dose)}  & \multicolumn{2}{c}{Treated (high dose)}  & \multicolumn{4}{c}{Pairwise t-test}  \\
+Variable & N & Mean/(SE) & N & Mean/(SE) & N & Mean/(SE) & N & Normalized difference & N & Normalized difference \\ \hline \\[-1.8ex] 
+Stars   & 485    & 11.85    & 73    & 4.62    & 24    & 30.88    & 558    & -0.12    & 509    & 0.19   \\
+ &   & (3.95)  &   & (1.68)  &   & (22.05)  &   &  &   &  \\ [1ex]
+Push events   & 485    & 29.45    & 73    & 29.97    & 24    & 56.04    & 558    & 0.00    & 509    & 0.25   \\
+ &   & (5.77)  &   & (10.71)  &   & (17.35)  &   &  &   &  \\ [1ex]
+Pull request events   & 485    & 10.51    & 73    & 11.77    & 24    & 33.58    & 558    & 0.02    & 509    & 0.35*   \\
+ &   & (2.79)  &   & (4.43)  &   & (14.14)  &   &  &   &  \\ [1ex]
+Issues opened   & 485    & 1.86    & 73    & 1.78    & 24    & 7.96    & 558    & -0.01    & 509    & 0.31***   \\
+ &   & (0.43)  &   & (0.94)  &   & (5.31)  &   &  &   &  \\ [1ex]
+Issues closed   & 485    & 1.62    & 73    & 1.45    & 24    & 8.25    & 558    & -0.02    & 509    & 0.32***   \\
+ &   & (0.48)  &   & (0.90)  &   & (5.61)  &   &  &   &  \\ [1ex]
+Fork events   & 485    & 1.70    & 73    & 1.22    & 24    & 7.63    & 558    & -0.07    & 509    & 0.39***   \\
+ &   & (0.38)  &   & (0.56)  &   & (4.01)  &   &  &   &  \\ [1ex]
+Release events   & 485    & 1.72    & 73    & 1.88    & 24    & 0.88    & 558    & 0.03    & 509    & -0.24   \\
+ &   & (0.22)  &   & (0.52)  &   & (0.31)  &   &  &   &  \\ [1ex]
+\hline \hline \\[-1.8ex]
+
+\end{tabular}
