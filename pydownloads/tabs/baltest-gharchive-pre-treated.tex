@@ -1,0 +1,28 @@
+%%% Table created in Stata by command iebaltab
+%%% (https://github.com/worldbank/ietoolkit)
+%%% (https://dimewiki.worldbank.org/iebaltab)
+%%% The command was specified exactly like this: 
+%%% iebaltab watchevent_pre pushevent_pre pullrequestevent_pre issues_opened_pre issues_closed_pre forkevent_pre releaseevent_pre , browse total groupvar(treatment) star(.1 .05 .01) stats(pair(nrmd)) nonote grplabels( 0 Control @ 1 Treated @ ) order(0 1) control(0) grouplabels(0 "Control repositories" @ 1 "Treated repositories") rowlabels( forkevent_pre "Fork events" @ pullrequestevent_pre "Pull request events" @ pushevent_pre "Push events" @ releaseevent_pre "Release events" @ watchevent_pre "Stars" @ issues_opened_pre "Issues opened" @ issues_closed_pre "Issues closed" ) totallabel(Full sample) format(%9.2f) savetex(../tabs/baltest-gharchive-pre-treated.tex) replace
+
+\begin{tabular}{@{\extracolsep{5pt}}lcccccccc}
+\\[-1.8ex]\hline \hline \\[-1.8ex]
+ & \multicolumn{2}{c}{(1)}  & \multicolumn{2}{c}{(2)}  & \multicolumn{2}{c}{(3)}  & \multicolumn{2}{c}{(3)-(2)} \\
+ & \multicolumn{2}{c}{Full sample}  & \multicolumn{2}{c}{Control repositories}  & \multicolumn{2}{c}{Treated repositories}  & \multicolumn{2}{c}{Pairwise t-test}  \\
+Variable & N & Mean/(SE) & N & Mean/(SE) & N & Mean/(SE) & N & Normalized difference \\ \hline \\[-1.8ex] 
+Stars   & 23965    & 18.21    & 19142    & 18.23    & 4823    & 18.10    & 23965    & -0.00   \\
+ &   & (3.32)  &   & (4.08)  &   & (3.19)  &   &  \\ [1ex]
+Push events   & 23965    & 33.04    & 19142    & 32.01    & 4823    & 37.11    & 23965    & 0.02   \\
+ &   & (1.87)  &   & (2.04)  &   & (4.56)  &   &  \\ [1ex]
+Pull request events   & 23965    & 23.31    & 19142    & 22.07    & 4823    & 28.22    & 23965    & 0.03*   \\
+ &   & (1.30)  &   & (1.40)  &   & (3.33)  &   &  \\ [1ex]
+Issues opened   & 23965    & 4.84    & 19142    & 4.66    & 4823    & 5.53    & 23965    & 0.01   \\
+ &   & (0.45)  &   & (0.54)  &   & (0.74)  &   &  \\ [1ex]
+Issues closed   & 23965    & 3.99    & 19142    & 3.84    & 4823    & 4.60    & 23965    & 0.02   \\
+ &   & (0.34)  &   & (0.39)  &   & (0.61)  &   &  \\ [1ex]
+Fork events   & 23965    & 5.37    & 19142    & 5.29    & 4823    & 5.67    & 23965    & 0.00   \\
+ &   & (0.87)  &   & (1.07)  &   & (0.79)  &   &  \\ [1ex]
+Release events   & 23965    & 0.96    & 19142    & 0.93    & 4823    & 1.11    & 23965    & 0.02   \\
+ &   & (0.07)  &   & (0.08)  &   & (0.17)  &   &  \\ [1ex]
+\hline \hline \\[-1.8ex]
+
+\end{tabular}
