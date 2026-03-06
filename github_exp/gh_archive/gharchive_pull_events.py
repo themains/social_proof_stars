@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import argparse, os, re, calendar
+import argparse, os, re
 from io import StringIO
 from datetime import datetime, timezone
 from typing import List, Tuple
@@ -42,20 +42,16 @@ def normalize_repos(raw: List[str]) -> List[str]:
             seen.add(r); dedup.append(r)
     return dedup
 
-def month_windows_2023() -> List[Tuple[str,str,str,str]]:
-    # label, month_suffix(YYYYMM), start_ts, end_ts
+def month_windows(year: int) -> List[Tuple[str,str,str,str]]:
     out=[]
     for m in range(1,13):
-        label=f"2023-{m:02d}"
-        month_suffix=f"2023{m:02d}"
-        start=datetime(2023,m,1,tzinfo=timezone.utc)
-        last_day=calendar.monthrange(2023,m)[1]
-        end=datetime(2023,m,last_day,23,59,59,tzinfo=timezone.utc)
-        # Better: end-exclusive next month midnight
+        label=f"{year}-{m:02d}"
+        month_suffix=f"{year}{m:02d}"
+        start=datetime(year,m,1,tzinfo=timezone.utc)
         if m==12:
-            end_excl=datetime(2024,1,1,tzinfo=timezone.utc)
+            end_excl=datetime(year+1,1,1,tzinfo=timezone.utc)
         else:
-            end_excl=datetime(2023,m+1,1,tzinfo=timezone.utc)
+            end_excl=datetime(year,m+1,1,tzinfo=timezone.utc)
         out.append((label, month_suffix, start.isoformat().replace("+00:00","Z"),
                     end_excl.isoformat().replace("+00:00","Z")))
     return out
@@ -64,7 +60,8 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--input", required=True)
     ap.add_argument("--project", required=True)
-    ap.add_argument("--outdir", default="./gh_events_2023_parquet")
+    ap.add_argument("--outdir", required=True)
+    ap.add_argument("--year", type=int, required=True)
     ap.add_argument("--max_repos", type=int, default=None)
     args=ap.parse_args()
 
@@ -106,7 +103,7 @@ def main():
       AND repo.name IN (SELECT repo_full_name FROM repo_list)
     """
 
-    for label, month_suffix, start_ts, end_ts in month_windows_2023():
+    for label, month_suffix, start_ts, end_ts in month_windows(args.year):
         print(f"[{label}] querying month {month_suffix} for {len(repos)} repos")
         job_config=bigquery.QueryJobConfig(
             query_parameters=[
