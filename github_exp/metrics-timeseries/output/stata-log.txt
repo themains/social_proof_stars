@@ -1,0 +1,75 @@
+------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  \\wsl.localhost\Debian\home\lsys\social_proof_stars\github_exp\metrics-timeseries\src\../output/stata-log.t
+> xt
+  log type:  text
+ opened on:  11 Aug 2024, 14:08:58
+
+. 
+. version 13              // Still on version 13 :(
+
+. 
+. // -----------------------------------------------------------------------------
+. * Repo baselines
+. // -----------------------------------------------------------------------------
+. use "../../get_baseline_profile/output/repo_baselines.dta", clear
+
+. 
+. gen python_lang = (language == "Python")
+
+. 
+. local vars_to_encode "language"
+
+. foreach var of local vars_to_encode {
+  2.     rename `var' `var'_str
+  3.     encode `var'_str, gen(`var')
+  4. }
+
+. 
+. global repo_baselines size_mb fork year_created subscribers_count has_issues forks open_issues n_topic python_lang
+
+. 
+. 
+. #delimit;
+delimiter now ;
+. iebaltab 
+>         $repo_baselines
+>         ,
+>         total
+>         groupvar(treated)
+>         // ftest
+>         star(.1 .05 .01)
+>         stats(pair(nrmd))
+>         nonote
+>         grplabels(
+>                 0 Control @
+>                 1 Treated @
+>                 )
+>         order(0 1)
+>         control(0)
+>         grouplabels(0 "Control packages" @ 1 "Treated packages")
+>         rowlabels(
+>                 size_mb "Repository size" @
+>                 year_created "Year created" @
+>                 fork "Forked = 1" @
+>                 // stargazers_count "Stars" @
+>                 subscribers_count "Subscribers" @
+>                 has_issues "Has issues = 1" @
+>                 forks "Number of forks" @
+>                 open_issues "Number of open issues" @
+>                 n_topics "Number of topics listed" @
+>                 python_lang     "Python = 1"
+>                 )
+>         totallabel(Full sample)
+>         format(%9.2f)
+>         savetex(../output/baltest-repo-treated-01.tex) 
+>         replace
+> ;
+variable n_topic not found
+r(111);
+
+end of do-file
+
+r(111);
+
+. exit, clear
