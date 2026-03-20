@@ -2,7 +2,7 @@
 %%% (https://github.com/worldbank/ietoolkit)
 %%% (https://dimewiki.worldbank.org/iebaltab)
 %%% The command was specified exactly like this: 
-%%% iebaltab watchevent_pre pushevent_pre pullrequestevent_pre issues_opened_pre issues_closed_pre forkevent_pre releaseevent_pre , total groupvar(treated) star(.1 .05 .01) stats(pair(nrmd)) nonote grplabels( 0 Control @ 1 Treated @ ) order(0 1) control(0) grouplabels(0 "Control repositories" @ 1 "Treated repositories") rowlabels( forkevent_pre "Fork events" @ pullrequestevent_pre "Pull request events" @ pushevent_pre "Push events" @ releaseevent_pre "Release events" @ watchevent_pre "Stars" @ issues_opened_pre "Issues opened" @ issues_closed_pre "Issues closed" ) totallabel(Full sample) format(%9.2f) savetex(../output/baltest-gharchive-pre-treated-01.tex) replace
+%%% iebaltab watchevent_pre pushevent_pre pullrequestevent_pre issues_opened_pre issues_closed_pre forkevent_pre releaseevent_pre , total groupvar(treated) star(.05 .01 .001) stats(pair(nrmd)) nonote grplabels( 0 Control @ 1 Treated @ ) order(0 1) control(0) grouplabels(0 "Control repositories" @ 1 "Treated repositories") rowlabels( forkevent_pre "Fork events" @ pullrequestevent_pre "Pull request events" @ pushevent_pre "Push events" @ releaseevent_pre "Release events" @ watchevent_pre "Stars" @ issues_opened_pre "Issues opened" @ issues_closed_pre "Issues closed" ) totallabel(Full sample) format(%9.2f) savetex(../output/baltest-gharchive-pre-treated-01.tex) replace
 
 \begin{tabular}{@{\extracolsep{5pt}}lcccccccc}
 \\[-1.8ex]\hline \hline \\[-1.8ex]

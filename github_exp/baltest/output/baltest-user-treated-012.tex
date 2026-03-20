@@ -2,7 +2,7 @@
 %%% (https://github.com/worldbank/ietoolkit)
 %%% (https://dimewiki.worldbank.org/iebaltab)
 %%% The command was specified exactly like this: 
-%%% iebaltab public_repos public_gists followers following year_created year_updated org list_co list_email list_blog list_bio bio_size , groupvar(treated2) star(.1 .05 .01) stats(pair(nrmd)) nonote grplabels( 0 Control @ 1 Treated (low) @ 2 Treated (high) @ ) order(0 1 2) control(0) rowlabels( public_repos "Number of repositories" @ public_gists "Number of gists" @ followers "Number of followers" @ following "Number of people followed" @ year_created "Year created" @ year_updated "Year updated" @ org "Organization" @ list_co "List company" @ list_email "List email" @ list_blog "List personal site" @ list_bio "List brief bio" @ bio_size "Brief bio length" @ ) format(%9.2f) savetex(../output/baltest-user-treated-012.tex) replace
+%%% iebaltab public_repos public_gists followers following year_created year_updated org list_co list_email list_blog list_bio bio_size , groupvar(treated2) star(.05 .01 .001) stats(pair(nrmd)) nonote grplabels( 0 Control @ 1 Treated (low) @ 2 Treated (high) @ ) order(0 1 2) control(0) rowlabels( public_repos "Number of repositories" @ public_gists "Number of gists" @ followers "Number of followers" @ following "Number of people followed" @ year_created "Year created" @ year_updated "Year updated" @ org "Organization" @ list_co "List company" @ list_email "List email" @ list_blog "List personal site" @ list_bio "List brief bio" @ bio_size "Brief bio length" @ ) format(%9.2f) savetex(../output/baltest-user-treated-012.tex) replace
 
 \begin{tabular}{@{\extracolsep{5pt}}lcccccccccc}
 \\[-1.8ex]\hline \hline \\[-1.8ex]
@@ -11,7 +11,7 @@
 Variable & N & Mean/(SE) & N & Mean/(SE) & N & Mean/(SE) & N & Normalized difference & N & Normalized difference \\ \hline \\[-1.8ex] 
 Number of repositories   & 453    & 51.80    & 70    & 93.61    & 22    & 61.59    & 523    & 0.13    & 475    & 0.04   \\
  &   & (14.06)  &   & (41.71)  &   & (19.73)  &   &  &   &  \\ [1ex]
-Number of gists   & 453    & 3.03    & 70    & 3.00    & 22    & 9.32    & 523    & -0.00    & 475    & 0.28**   \\
+Number of gists   & 453    & 3.03    & 70    & 3.00    & 22    & 9.32    & 523    & -0.00    & 475    & 0.28*   \\
  &   & (0.57)  &   & (1.09)  &   & (6.32)  &   &  &   &  \\ [1ex]
 Number of followers   & 453    & 194.56    & 70    & 103.07    & 22    & 369.00    & 523    & -0.06    & 475    & 0.11   \\
  &   & (93.34)  &   & (40.03)  &   & (244.44)  &   &  &   &  \\ [1ex]
@@ -23,11 +23,11 @@ Year updated   & 453    & 2017.43    & 70    & 2017.06    & 22    & 2016.23    &
  &   & (0.18)  &   & (0.40)  &   & (0.79)  &   &  &   &  \\ [1ex]
 Organization   & 453    & 0.22    & 70    & 0.26    & 22    & 0.23    & 523    & 0.09    & 475    & 0.02   \\
  &   & (0.02)  &   & (0.05)  &   & (0.09)  &   &  &   &  \\ [1ex]
-List company   & 453    & 0.26    & 70    & 0.29    & 22    & 0.50    & 523    & 0.06    & 475    & 0.51**   \\
+List company   & 453    & 0.26    & 70    & 0.29    & 22    & 0.50    & 523    & 0.06    & 475    & 0.51*   \\
  &   & (0.02)  &   & (0.05)  &   & (0.11)  &   &  &   &  \\ [1ex]
 List email   & 453    & 0.32    & 70    & 0.34    & 22    & 0.32    & 523    & 0.05    & 475    & -0.00   \\
  &   & (0.02)  &   & (0.06)  &   & (0.10)  &   &  &   &  \\ [1ex]
-List personal site   & 453    & 0.45    & 70    & 0.47    & 22    & 0.64    & 523    & 0.04    & 475    & 0.37*   \\
+List personal site   & 453    & 0.45    & 70    & 0.47    & 22    & 0.64    & 523    & 0.04    & 475    & 0.37   \\
  &   & (0.02)  &   & (0.06)  &   & (0.10)  &   &  &   &  \\ [1ex]
 List brief bio   & 453    & 0.47    & 70    & 0.51    & 22    & 0.50    & 523    & 0.08    & 475    & 0.05   \\
  &   & (0.02)  &   & (0.06)  &   & (0.11)  &   &  &   &  \\ [1ex]

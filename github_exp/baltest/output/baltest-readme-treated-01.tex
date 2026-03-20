@@ -2,7 +2,7 @@
 %%% (https://github.com/worldbank/ietoolkit)
 %%% (https://dimewiki.worldbank.org/iebaltab)
 %%% The command was specified exactly like this: 
-%%% iebaltab raw_readme_len processed_readme_len n_requirements , total groupvar(treated) star(.1 .05 .01) stats(pair(nrmd)) nonote grplabels( 0 Control @ 1 Treated @ ) order(0 1) control(0) grouplabels(0 "Control packages" @ 1 "Treated packages") rowlabels( raw_readme_len "Package description length" @ processed_readme_len "Package description length (cleaned)" @ n_requirements "Number of dependencies" @ ) totallabel(Full sample) format(%9.2f) savetex(../output/baltest-readme-treated-01.tex) replace
+%%% iebaltab raw_readme_len processed_readme_len n_requirements , total groupvar(treated) star(.05 .01 .001) stats(pair(nrmd)) nonote grplabels( 0 Control @ 1 Treated @ ) order(0 1) control(0) grouplabels(0 "Control packages" @ 1 "Treated packages") rowlabels( raw_readme_len "Package description length" @ processed_readme_len "Package description length (cleaned)" @ n_requirements "Number of dependencies" @ ) totallabel(Full sample) format(%9.2f) savetex(../output/baltest-readme-treated-01.tex) replace
 
 \begin{tabular}{@{\extracolsep{5pt}}lcccccccc}
 \\[-1.8ex]\hline \hline \\[-1.8ex]

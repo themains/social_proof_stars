@@ -34,7 +34,7 @@ iebaltab
     ,
     total
     groupvar(treated)
-    star(.1 .05 .01)
+    star(.05 .01 .001)
     stats(pair(nrmd))
     nonote
     grplabels(
@@ -65,7 +65,7 @@ iebaltab
     $gharchive_pre
     ,
     groupvar(treated2)
-    star(.1 .05 .01)
+    star(.05 .01 .001)
     stats(pair(nrmd))
     nonote
     grplabels(

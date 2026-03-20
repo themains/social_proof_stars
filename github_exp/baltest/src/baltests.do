@@ -36,7 +36,7 @@ iebaltab
 	total
 	groupvar(treated)
 	// ftest
-	star(.1 .05 .01)
+	star(.05 .01 .001)
 	stats(pair(nrmd))
 	nonote
 	grplabels(
@@ -70,7 +70,7 @@ iebaltab
 	,
 	groupvar(treated2)
 	// ftest
-	star(.1 .05 .01)
+	star(.05 .01 .001)
 	stats(pair(nrmd))
 	nonote
 	grplabels(
@@ -115,7 +115,7 @@ iebaltab
 	total
 	groupvar(treated)
 	// ftest
-	star(.1 .05 .01)
+	star(.05 .01 .001)
 	stats(pair(nrmd))
 	nonote
 	grplabels(
@@ -151,7 +151,7 @@ iebaltab
 	,
 	groupvar(treated2)
 	// ftest
-	star(.1 .05 .01)
+	star(.05 .01 .001)
 	stats(pair(nrmd))
 	nonote
 	grplabels(
@@ -193,7 +193,7 @@ iebaltab
 	,
 	total
 	groupvar(treated)
-	star(.1 .05 .01)
+	star(.05 .01 .001)
 	stats(pair(nrmd))
 	nonote
 	grplabels(
@@ -219,7 +219,7 @@ iebaltab
 	raw_readme_len processed_readme_len n_requirements
 	,
 	groupvar(treated2)
-	star(.1 .05 .01)
+	star(.05 .01 .001)
 	stats(pair(nrmd))
 	nonote
 	grplabels(
@@ -241,6 +241,4 @@ iebaltab
 #delimit cr
 
 
-
-aa
 log close
