@@ -2,7 +2,7 @@
 %%% (https://github.com/worldbank/ietoolkit)
 %%% (https://dimewiki.worldbank.org/iebaltab)
 %%% The command was specified exactly like this: 
-%%% iebaltab watchevent_pre pushevent_pre pullrequestevent_pre issues_opened_pre issues_closed_pre forkevent_pre releaseevent_pre , browse total groupvar(treatment) star(.1 .05 .01) stats(pair(nrmd)) nonote grplabels( 0 Control @ 1 Treated @ ) order(0 1) control(0) grouplabels(0 "Control repositories" @ 1 "Treated repositories") rowlabels( forkevent_pre "Fork events" @ pullrequestevent_pre "Pull request events" @ pushevent_pre "Push events" @ releaseevent_pre "Release events" @ watchevent_pre "Stars" @ issues_opened_pre "Issues opened" @ issues_closed_pre "Issues closed" ) totallabel(Full sample) format(%9.2f) savetex(../tabs/baltest-gharchive-pre-treated.tex) replace
+%%% iebaltab watchevent_pre pushevent_pre pullrequestevent_pre issues_opened_pre issues_closed_pre forkevent_pre releaseevent_pre , browse total groupvar(treatment) star(.05 .01 .001) stats(pair(nrmd)) nonote grplabels( 0 Control @ 1 Treated @ ) order(0 1) control(0) grouplabels(0 "Control repositories" @ 1 "Treated repositories") rowlabels( forkevent_pre "Fork events" @ pullrequestevent_pre "Pull request events" @ pushevent_pre "Push events" @ releaseevent_pre "Release events" @ watchevent_pre "Stars" @ issues_opened_pre "Issues opened" @ issues_closed_pre "Issues closed" ) totallabel(Full sample) format(%9.2f) savetex(../tabs/baltest-gharchive-pre-treated.tex) replace
 
 \begin{tabular}{@{\extracolsep{5pt}}lcccccccc}
 \\[-1.8ex]\hline \hline \\[-1.8ex]
@@ -13,7 +13,7 @@ Stars   & 17872    & 24.41    & 14241    & 24.51    & 3631    & 24.04    & 17872
  &   & (4.45)  &   & (5.48)  &   & (4.23)  &   &  \\ [1ex]
 Push events   & 17872    & 44.30    & 14241    & 43.03    & 3631    & 49.30    & 17872    & 0.02   \\
  &   & (2.50)  &   & (2.74)  &   & (6.05)  &   &  \\ [1ex]
-Pull request events   & 17872    & 31.26    & 14241    & 29.67    & 3631    & 37.48    & 17872    & 0.03*   \\
+Pull request events   & 17872    & 31.26    & 14241    & 29.67    & 3631    & 37.48    & 17872    & 0.03   \\
  &   & (1.74)  &   & (1.87)  &   & (4.42)  &   &  \\ [1ex]
 Issues opened   & 17872    & 6.49    & 14241    & 6.27    & 3631    & 7.34    & 17872    & 0.01   \\
  &   & (0.61)  &   & (0.72)  &   & (0.98)  &   &  \\ [1ex]

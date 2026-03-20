@@ -26,7 +26,7 @@ iebaltab
     browse
     total
     groupvar(treatment)
-    star(.1 .05 .01)
+    star(.05 .01 .001)
     stats(pair(nrmd))
     nonote
     grplabels(
