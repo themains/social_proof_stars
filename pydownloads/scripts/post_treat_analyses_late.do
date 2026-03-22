@@ -14,7 +14,7 @@ gen t = date - cutoff_date
 
 * End date of sample period
 local end_date = date("2023-07-20", "YMD")
-local delta_days_obs = `end_date' - cutoff_date
+local delta_days_obs = `end_date' - cutoff_date + 1
 
 local post_snapshot_date 2023-06-22
 
