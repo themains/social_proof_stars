@@ -133,7 +133,7 @@ eststo: qreg tt_downloads i.treatment2 `baselines' if date==date("`_post_snapsho
 
 * --------------------------------------------------------------
 * Snapshot at 20 October (5 months relative to 20 May end of treatment period)
-local _post_snapshot_date 2023-09-20
+local _post_snapshot_date 2023-10-20
 eststo: qreg tt_downloads i.treatment2 `baselines' if date==date("`_post_snapshot_date'", "YMD"), vce(r) quantile(.5)
     * Add scalars
     // Get median of y -----------------------------------
