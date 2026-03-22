@@ -23,7 +23,7 @@ local delta_days_obs = `end_date' - date("`cutoff_date_str'", "YMD") + 1
 eststo clear
 * --------------------------------------------------------------
 * Snapshot at 20 Jun (1 month relative to 20 May end of treatment period)
-local _post_snapshot_date 2023-06-2
+local _post_snapshot_date 2023-06-20
 eststo: reg tt_downloads i.treatment2 if date==date("`_post_snapshot_date'", "YMD"), vce(hc3)
 	* Add scalars
 	// Get mean of y -----------------------------------
@@ -281,7 +281,7 @@ eststo: qreg tt_downloads i.treatment2 if date==date("`_post_snapshot_date'", "Y
 
 * --------------------------------------------------------------
 * Snapshot at 20 October (5 months relative to 20 May end of treatment period)
-local _post_snapshot_date 2023-09-20
+local _post_snapshot_date 2023-10-20
 eststo: qreg tt_downloads i.treatment2 if date==date("`_post_snapshot_date'", "YMD"), vce(r) quantile(.5)
 	* Add scalars
 	// Get median of y -----------------------------------
