@@ -3,7 +3,6 @@ Copy*.ipynb
 scratch/*
 *xlsx
 **/*.tar.gz
-**/*.csv*
 **/*.xls
 **/*.xlsx
 secrets.txt
@@ -520,3 +519,5 @@ TSWLatexianTemp*
 .DS_Store
 .Rhistory
 social_proof_stars.Rproj
+/pydownloads/data/gh_events_pypi_2023
+/pydownloads/data/gh_events_pypi_2024
