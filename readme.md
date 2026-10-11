@@ -2,6 +2,8 @@
 
 Open-source software is widely used in commercial applications. Pair that with the fact that when choosing open-source software for a new problem, developers often use social proof as a cue. These two facts raise concern that bad actors can game social proof metrics to induce the use of malign software. We study the question using two field experiments. On the largest developer platform, GitHub, we buy `stars' for a random set of GitHub repositories of new Python packages and estimate their impact on package downloads. We find no discernible impact. In another field experiment, we manipulate the number of human downloads for Python packages. Again, we find little effect.
 
+Archived replication data: [Harvard Dataverse](https://doi.org/10.7910/DVN/7HWPYZ).
+
 ### Key Findings
 
 - **GitHub Stars Experiment**: Buying stars for repositories had no detectable effect on PyPI downloads
